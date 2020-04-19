@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var firstTable: UITableView!
     var weather: [Weather] = []
     var w: WeatherLoader?
+    var timer: Timer?
     var cities: [String] = ["Moscow"]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,20 @@ class ViewController: UIViewController {
         }
     }
     func reData() {
+        //Вставил дилей что бы успеть посмотреть кэшированные данные
+        if timer == nil {
+          timer = Timer.scheduledTimer(timeInterval: 1.0,
+                                       target: self,
+                                       selector: #selector(reData1),
+                                       userInfo: nil,
+                                       repeats: true)
+        }
+    }
+    @IBAction func onAlamofireChanged(_ sender: Any) {
+        reData()
+    }
+    
+    @objc func reData1() {
         weather.removeAll()
         for city in cities {
             w!.loadWeather(isAlamofire.isOn,city: city,completition: { weather in
@@ -33,9 +48,6 @@ class ViewController: UIViewController {
                 self.firstTable.reloadData()
             })
         }
-    }
-    @IBAction func onAlamofireChanged(_ sender: Any) {
-        reData()
     }
 }
 
