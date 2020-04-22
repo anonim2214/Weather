@@ -19,6 +19,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         w = WeatherLoader()
+        
+        let cache = Persistance.shared.getCache()
+        
+        if cache.count > 0 {
+            cities.removeAll()
+            for c in cache{
+                cities.append(c.city)
+                self.weather.append(c)
+            }
+            firstTable.reloadData()
+        }
         reData()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -29,11 +40,11 @@ class ViewController: UIViewController {
     func reData() {
         //Вставил дилей что бы успеть посмотреть кэшированные данные
         if timer == nil {
-          timer = Timer.scheduledTimer(timeInterval: 1.0,
+          timer = Timer.scheduledTimer(timeInterval: 10.0,
                                        target: self,
                                        selector: #selector(reData1),
                                        userInfo: nil,
-                                       repeats: true)
+                                       repeats: false)
         }
     }
     @IBAction func onAlamofireChanged(_ sender: Any) {
@@ -41,11 +52,16 @@ class ViewController: UIViewController {
     }
     
     @objc func reData1() {
+        Persistance.shared.deleteAll()
         weather.removeAll()
         for city in cities {
             w!.loadWeather(isAlamofire.isOn,city: city,completition: { weather in
+                
                 self.weather.append(weather)
                 self.firstTable.reloadData()
+                DispatchQueue.main.async {
+                     Persistance.shared.save(data: weather)
+                }
             })
         }
     }

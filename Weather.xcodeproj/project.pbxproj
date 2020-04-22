@@ -16,6 +16,11 @@
 		28208FF92434D726007B52CD /* TableViewCell3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28208FF82434D726007B52CD /* TableViewCell3.swift */; };
 		28208FFD2434E8F7007B52CD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28208FFA2434E588007B52CD /* Alamofire.framework */; };
 		28208FFE2434E8F7007B52CD /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 28208FFA2434E588007B52CD /* Alamofire.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		28505017244DBDE000A77A35 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28505016244DBDE000A77A35 /* Persistance.swift */; };
+		288189B7244D067E007FFA61 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288189B5244D067E007FFA61 /* RealmSwift.framework */; };
+		288189B8244D067E007FFA61 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 288189B5244D067E007FFA61 /* RealmSwift.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		288189B9244D067E007FFA61 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288189B6244D067E007FFA61 /* Realm.framework */; };
+		288189BA244D067E007FFA61 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 288189B6244D067E007FFA61 /* Realm.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		28A210DD24320566005F7656 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A210DC24320566005F7656 /* AppDelegate.swift */; };
 		28A210DF24320566005F7656 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A210DE24320566005F7656 /* SceneDelegate.swift */; };
 		28A210E124320566005F7656 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A210E024320566005F7656 /* ViewController.swift */; };
@@ -50,6 +55,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				288189BA244D067E007FFA61 /* Realm.framework in Embed Frameworks */,
+				288189B8244D067E007FFA61 /* RealmSwift.framework in Embed Frameworks */,
 				28208FFE2434E8F7007B52CD /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -66,6 +73,9 @@
 		28208FF42434D2D3007B52CD /* ViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController1.swift; sourceTree = "<group>"; };
 		28208FF82434D726007B52CD /* TableViewCell3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell3.swift; sourceTree = "<group>"; };
 		28208FFA2434E588007B52CD /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
+		28505016244DBDE000A77A35 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
+		288189B5244D067E007FFA61 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		288189B6244D067E007FFA61 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		28A210D924320566005F7656 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28A210DC24320566005F7656 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28A210DE24320566005F7656 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +97,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				288189B9244D067E007FFA61 /* Realm.framework in Frameworks */,
+				288189B7244D067E007FFA61 /* RealmSwift.framework in Frameworks */,
 				28208FFD2434E8F7007B52CD /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +120,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		288189B4244D067E007FFA61 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				288189B6244D067E007FFA61 /* Realm.framework */,
+				288189B5244D067E007FFA61 /* RealmSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		28A210D024320566005F7656 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +137,7 @@
 				28A210F224320569005F7656 /* WeatherTests */,
 				28A210FD24320569005F7656 /* WeatherUITests */,
 				28A210DA24320566005F7656 /* Products */,
+				288189B4244D067E007FFA61 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,6 +168,7 @@
 				28208FF2243481A5007B52CD /* TableCellWithTable.swift */,
 				28208FF42434D2D3007B52CD /* ViewController1.swift */,
 				28208FF82434D726007B52CD /* TableViewCell3.swift */,
+				28505016244DBDE000A77A35 /* Persistance.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -179,6 +202,7 @@
 				28A210D624320566005F7656 /* Frameworks */,
 				28A210D724320566005F7656 /* Resources */,
 				28208FFF2434E8F7007B52CD /* Embed Frameworks */,
+				28505015244DBCD900A77A35 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -295,6 +319,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		28505015244DBCD900A77A35 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		28A210D524320566005F7656 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -305,6 +351,7 @@
 				28208FF124347E95007B52CD /* Table.swift in Sources */,
 				28208FEB2433CA9D007B52CD /* TableViewCell.swift in Sources */,
 				28A210E124320566005F7656 /* ViewController.swift in Sources */,
+				28505017244DBDE000A77A35 /* Persistance.swift in Sources */,
 				28208FE924332414007B52CD /* WeatherLoader.swift in Sources */,
 				28A210DD24320566005F7656 /* AppDelegate.swift in Sources */,
 				28A210DF24320566005F7656 /* SceneDelegate.swift in Sources */,
@@ -487,6 +534,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Weather/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -510,6 +558,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Weather/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

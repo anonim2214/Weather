@@ -22,6 +22,16 @@ struct CurentWeather {
         self.cloud = cloud
         self.humidity = humidity
     }
+    init(t: Double, c: String, wk: Double, wd: String, vk: Double, f:Double, cl: Double, h: Double) {
+        temp = t
+        condition = c
+        wind_dir = wd
+        wind_kph = wk
+        vis_km = vk
+        feelslike = f
+        cloud = cl
+        humidity = h
+    }
     
     func getKeyByIndex(_ index: Int) -> String {
         switch index {
@@ -87,7 +97,18 @@ struct ForecastWeather {
         self.sunrise = sunrise
         self.sunset = sunset
     }
-    
+    init(d: Date, max: Double, min: Double, avg:Double, c: String, maxW: Double, avgV: Double, sr: String, ss: String) {
+        date = d
+        maxTemp = max
+        minTemp = min
+        avgTemp = avg
+        condition = c
+        maxWind_kph = maxW
+        avgVis_km = avgV
+        sunrise = sr
+        sunset = ss
+        
+    }
     func getKeyByIndex(_ index: Int) -> String {
         switch index {
         case 0: return "Макс температура"
@@ -153,6 +174,12 @@ struct Weather {
         self.country = country
         self.currentWeather = cW
     }
+    init(ci: String, co: String, cur: CurentWeather, f: [ForecastWeather]) {
+        city = ci
+        country = co
+        currentWeather = cur
+        forecastWeather = f
+    }
     let city: String
     let country: String
     let currentWeather: CurentWeather
@@ -167,6 +194,7 @@ class WeatherLoader {
         } else {
             loadWeather1(city: city, completition: completition)
         }
+
     }
     func loadWeather1(city: String, completition: @escaping (Weather) -> Void) {
         let url = URL(string: "https://api.weatherapi.com/v1/forecast.json?key=3200870425f54efcbd965216203103&q=\(city)&days=5&lang=ru")!
@@ -177,7 +205,7 @@ class WeatherLoader {
                 let jsonDict = json as? NSDictionary,
                 let w = Weather(jsonDict){
                 DispatchQueue.main.async {
-                    completition(w)
+                        completition(w)
                 }
             }
         }
